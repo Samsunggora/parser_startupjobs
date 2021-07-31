@@ -15,15 +15,15 @@ class City(models.Model):
 
 
 class Prof_language(models.Model):
-    _name = models.CharField(max_length=170, unique=True)
-    _slug = AutoSlugField(populate_from='_name')
+    name = models.CharField(max_length=170, unique=True)
+    slug = AutoSlugField(populate_from='name')
 
     class Meta:
         verbose_name = 'Language'
         verbose_name_plural = 'Languages'
 
     def __str__(self):
-        return self._name
+        return self.name
 
 
 class Vacancy(models.Model):

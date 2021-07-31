@@ -1,22 +1,26 @@
-<!doctype html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
-    <title>Document</title>
-</head>
-<body>
-<div>
+{% extends "base.html" %}
+{% block body %}
     {% for obj in object_list %}
-        <p><a href="{{ obj.url }}">{{ obj.title }}</a></p>
-        <p>{{ obj.description }}</p>
-    {% endfor %}
-</div>
+        <div class="card body-background">
+            <div class="card-header">
+                Featured
+            </div>
 
-</body>
-</html>
+            <div class="card-body body-background">
+                <h5 class="card-title"><a href="{{ obj.url }}">{{ obj.title }}</a></h5>
+                <p class="card-text">{{ obj.description }}</p>
+                <p>{{ obj.city.name }} | {{ obj.language }} |
+                    <smal>{{ obj.timestamp }}</smal>
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    {% empty %}
+        <h3>Not found :(</h3>
+    {% endfor %}
+    <form method="get" action="">
+
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+.body-background {
+    background-color: #30343C;
+}
+
+.card.body-background {
+    background-color: #30343C;
+    color: #ffffff;
+    border: 1px solid #ccc !important;
+}
+
+.card-header {
+    border-bottom: 1px solid #cccccc !important;
+}
